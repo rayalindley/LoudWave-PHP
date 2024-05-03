@@ -5,23 +5,23 @@ session_start(); // Start session (if not already started)
 include 'connect.php';
 
 // Check if user is logged in and their account still exists
-if (isset($_SESSION['user_id'])) {
-    // Retrieve user ID from session
-    $user_id = $_SESSION['user_id'];
+// if (isset($_SESSION['user_id'])) {
+//     // Retrieve user ID from session
+//     $user_id = $_SESSION['user_id'];
 
-    // Query to check if the user's account still exists
-    $query = "SELECT * FROM tbluseraccount WHERE acctid = $user_id";
-    $result = mysqli_query($connection, $query);
+//     // Query to check if the user's account still exists
+//     $query = "SELECT * FROM tbluseraccount WHERE acctid = $user_id";
+//     $result = mysqli_query($connection, $query);
 
-    // Check if the query returned any rows
-    if (mysqli_num_rows($result) == 0) {
-        // User's account does not exist, invalidate session (log out)
-        session_unset(); // Unset all session variables
-        session_destroy(); // Destroy the session
-        header("location: index.php"); // Redirect to index page
-        exit(); // Stop further script execution
-    }
-}
+//     // Check if the query returned any rows
+//     if (mysqli_num_rows($result) == 0) {
+//         // User's account does not exist, invalidate session (log out)
+//         session_unset(); // Unset all session variables
+//         session_destroy(); // Destroy the session
+//         header("location: index.php"); // Redirect to index page
+//         exit(); // Stop further script execution
+//     }
+// }
 ?>
 
 <!DOCTYPE html>

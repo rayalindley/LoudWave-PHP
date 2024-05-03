@@ -12,7 +12,7 @@
     if (isset($_POST['btnLogin'])) {
         unset($message);
         $emailuname = $_POST['txtemailusername'];
-        $pword = $_POST['txtpassword'];
+        $password = $_POST['txtpassword'];
     
         $sql1 = "SELECT * FROM tbluseraccount WHERE username = '$emailuname' OR emailadd = '$emailuname'";
         $result = mysqli_query($connection, $sql1);
@@ -21,14 +21,15 @@
         if($result && mysqli_num_rows($result) == 1) {
             $user = mysqli_fetch_assoc($result);
             $hashed_password = $user['password'];
-            var_dump($hashed_password);
-            echo $pword;
             
-            if(password_verify($pword,$hashed_password)) {
-                // Store user_id in session for future use
-                // $userid = mysqli_insert_id($connection);
-                // $_SESSION['id'] = $userid;
-                // $_SESSION['user_id'] = mysqli_insert_id($connection);
+            if(password_verify($password, $hashed_password)) {
+                $userid = $user['userid_fk'];
+                $_SESSION['user_id'] = $userid;
+                //$userid =;
+                //$_SESSION['user_id'] = mysqli_insert_id($connection);
+                //$_SESSION['id'] = $userid;
+                //$_SESSION['user_id'] = mysqli_insert_id($connection);
+                echo $userid;
                 header("location: index.php");
                 exit();
             } else {

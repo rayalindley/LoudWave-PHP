@@ -18,7 +18,7 @@
 		$pass = $_POST['txtpassword'];
 		$pword = password_hash($pass, PASSWORD_DEFAULT);
 	
-		//save data to tbluserprofile			
+		//save data to tbluserprofile
 		
 	
 		//Check tbluseraccount if username is already existing. Save info if false. Prompt msg if true.
@@ -30,19 +30,19 @@
 			mysqli_query($connection, $sql1);
 
 			// Get the auto-generated userid from tbluserprofile
-			//$userid = mysqli_insert_id($connection);
+			$userid = mysqli_insert_id($connection);
 
 			// Insert data into tbluseraccount
 			$sql2 = "INSERT INTO tbluseraccount (emailadd, username, password, usertype, userid_fk) VALUES ('$email', '$uname', '$pword', 'Customer', '$userid')";
 			mysqli_query($connection, $sql2);
 
-			$_SESSION['user_id'] = mysqli_insert_id($connection);
+			//$_SESSION['user_id'] = mysqli_insert_id($connection);
 			//added
 			//$_SESSION['id'] = $userid;
 			//$_SESSION['user_id'] = mysqli_insert_id($connection);
-			//$_SESSION['registration_success']=true;
-			//header("location: login.php?from=register");
-			header("location: index.php");
+			$_SESSION['registration_success']=true;
+			header("location: login.php?from=register");
+			//header("location: index.php");
 			exit();
 		} else {
 			$message = "Username or email already existing. Please try again.";

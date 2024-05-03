@@ -196,3 +196,10 @@ input[type="email"], input[type="password"] {
 #organizer-container ul {
     list-style-type: none;
 } 
+
+
+
+/* ---------------------- Profile PHP ------------------------ */
+#editProfileForm label {
+    text-align: left;
+}
