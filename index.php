@@ -51,6 +51,7 @@ include 'connect.php';
                 <a href="profile.php"> Profile </a>
             <?php else: ?>
                 <!-- If user is not logged in, display "Register" and "Login" links -->
+                <a href="report.php"> Reports </a>
                 <a href="register.php"> Register </a>
                 <a href="#"> / </a>
                 <a href="login.php"><img src="Images/icons8-user-material-rounded/icons8-user-24.png" alt=""> Log in </a>

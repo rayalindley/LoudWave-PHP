@@ -41,7 +41,7 @@
         <div>
             <form>
                 <button style="color:black;"> Add Event </button>
-            </form>
+            </form> 
             
             <div id="organizer-container">
                 <h2>Organizers</h2>
